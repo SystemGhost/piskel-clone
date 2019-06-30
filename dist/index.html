@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script type="text/javascript" src="../jsgif/LZWEncoder.js"></script>
+  <script type="text/javascript" src="../jsgif/NeuQuant.js"></script>
+
+  <script type="text/javascript" src="../jsgif/b64.js"></script>
+  <script type="text/javascript" src="../jsgif/GIFEncoder.js"></script>
+  <script src="https://kit.fontawesome.com/228165e24d.js" defer></script>
+  <title>Piskel Clone</title>
+</head>
+
+<body>
+  <div id="preview-container">
+    <div id="container-preview-canvas">
+      <div id="preview-screen">
+        <canvas id='preview'></canvas>
+      </div>
+      <button id="fullscreen-preview"><i class="fas fa-compress"></i></button>
+    </div>
+    <div class="group-preview">
+      <button id="start-preview">start</button>
+      <button id="end-preview">end</button>
+      <button id="download">download</button>
+    </div>
+    <div class="slidecontainer">
+      <input type="range" min="1" max="24" value="1" class="slider" id="myRange">
+      <p>Frame: <span id="demo"></span></p>
+    </div>
+
+  </div>
+
+  <div id="layers-container">
+    <button id="add-layer">+</button>
+    <div id="layers"></div>
+  </div>
+
+  <div id='tools'>
+    <div class="tools-container">
+      <button class="tool" id='thicc-1'>1</button>
+      <button class="tool" id='thicc-2'>2</button>
+      <button class="tool" id='thicc-3'>3</button>
+      <button class="tool" id='thicc-4'>4</button>
+      <button class="tool" id='brush'><i class="fas fa-pen"></i></button>
+      <button class="tool" id='horizontal-brush'><i class="fas fa-pencil-alt"></i></button>
+      <button class="tool" id='vert-horiz-brush'><i class="fas fa-pen-square"></i></button>
+      <button class="tool" id='vertical-brush'><i class="fas fa-brush"></i></button>
+      <button class="tool" id='bucket'><i class="fas fa-fill-drip"></i></button>
+    </div>
+    <div id='palette-container'>
+      <div id='temp-colors'>
+        <div id='primaryColor'></div>
+        <div id='secondaryColor'></div>
+      </div>
+      <div id='groupColor'>
+        <div class="color-cell" id='black'></div>
+        <div class="color-cell" id='white'></div>
+        <div class="color-cell" id='red'></div>
+        <div class="color-cell" id='green'></div>
+        <div class="color-cell" id='blue'></div>
+        <div class="color-cell" id='gray'></div>
+      </div>
+    </div>
+  </div>
+  <div id="timeline-container">
+    <button class="add-frame" id="add-new-frame">+</button>
+    <div id="timeline-table">
+    </div>
+  </div>
+  <div id='canvas-container'></div>
+<script type="text/javascript" src="bundle.js"></script></body>
+
+</html>

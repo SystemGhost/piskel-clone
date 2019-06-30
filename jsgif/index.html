@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script type="text/javascript" src="LZWEncoder.js"></script>
+  <script type="text/javascript" src="NeuQuant.js"></script>
+  <script type="text/javascript" src="GIFEncoder.js"></script>
+  <script type="text/javascript" src="b64.js"></script>
+  <title>Document</title>
+</head>
+
+<body>
+  <canvas id="bitmap"></canvas>
+  <script>
+    var canvas = document.getElementById('bitmap');
+    var context = canvas.getContext('2d');
+    context.fillStyle = 'rgb(255,255,255)';
+    context.fillRect(0, 0, canvas.width, canvas.height); //GIF can't do transparent so do white
+
+    context.fillStyle = "rgb(200,0,0)";
+    context.fillRect(10, 10, 75, 50);   //draw a little red box
+
+    var encoder = new GIFEncoder();
+
+    encoder.setRepeat(0); //0  -> loop forever
+    //1+ -> loop n times then stop
+    encoder.setDelay(500); //go to next frame every n milliseconds
+
+    encoder.start();
+
+    encoder.addFrame(context);
+    encoder.finish();
+    //var binary_gif = encoder.stream().getData() //notice this is different from the as3gif package!
+    //var data_url = 'data:image/gif;base64,' + encode64(binary_gif);
+
+    encoder.download("download.gif");
+  </script>
+</body>
+
+</html>
